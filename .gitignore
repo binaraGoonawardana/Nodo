@@ -1,0 +1,14 @@
+### Bower ###
+bower_components/
+.bower-cache
+.bower-registry
+.bower-tmp
+
+### DotEnv ###
+.env
+
+### VSCode ###
+.vscode/
+
+### Dependency Directories ###
+node_modules/
