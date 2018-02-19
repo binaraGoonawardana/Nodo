@@ -12,6 +12,8 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "lodash": "^4.17.4",
-    "restify": "^6.3.4"
+    "moment": "^2.20.1",
+    "restify": "^6.3.4",
+    "winston": "^2.4.0"
   }
 }

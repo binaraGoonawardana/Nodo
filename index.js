@@ -1,5 +1,6 @@
 const restify = require('restify'),
-  config = require('./config');
+  config = require('./config'),
+  logger = require('./logger');
 
 const server = restify.createServer({
   name: 'Nodo',
@@ -12,5 +13,5 @@ server.get('/echo/:name', (req, res, next) => {
 });
 
 server.listen(config.port, () => {
-  console.log('%s listening at %s', server.name, server.url);
+  logger.info('%s listening at %s', server.name, server.url);
 });
