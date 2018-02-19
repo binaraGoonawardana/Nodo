@@ -6,9 +6,14 @@ const logLevel = process.env.LOG_LVL || "debug";
 const env = process.env.NODE_ENV || "development";
 const logger = new winston.Logger();
 
-logger.add(winston.transports.Console, {colorize: true, level: logLevel});
+logger.add(winston.transports.Console, {
+  colorize: true, 
+  level: logLevel, 
+  handleExceptions: true,
+  humanReadableUnhandledException: true
+});
 
-if (env === "production") {
+if (env === "development") {
   var logPath = process.env.LOG_PATH || 'logs';
 
   if (!fs.existsSync(logPath)) {
@@ -19,7 +24,9 @@ if (env === "production") {
         filename: `${logPath}/logger.log`, 
         level: logLevel, 
         maxsize: 5242880, 
-        maxFiles: 10
+        maxFiles: 10,
+        handleExceptions: true,
+        humanReadableUnhandledException: true
       });
     } catch(err) {
       logger.error(err.message);
